@@ -68,6 +68,10 @@ class Query:
             alist.append(res)
         return alist
 ```
+## 运行方法
+```bash
+python manage.py runserver
+```
 ## 结果展示
   网页基于Django框架实现
   
