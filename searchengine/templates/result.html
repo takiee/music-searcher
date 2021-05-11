@@ -1,0 +1,34 @@
+{% extends "main.html" %}
+
+{% block title %}{{query}} - Result Page{% endblock %}
+
+{% block resultAmount %}找到相关结果{{resAmount}}个{% endblock %}
+
+{% block search %}{{query}}{% endblock %}
+
+{% block content %}
+    {% for key in results %}
+        <div class="package list-group-item" target="_blank" style= "font: 16px MingLiU;background: #F0FFF0">
+            <div class="row">
+                <div class="col-md-3">
+                    <h4 class="package-name">{{key.singer_name|striptags}}</h4>
+                </div>
+                <a href="{{key.song_url}}" class="col-md-9 hidden-xs">
+                    <p class="package-description-star"><i class="fa fa-star"></i>{{key.song_name}}</p>
+                </a>
+                <div class="package-extra-info col-md-9 col-md-offset-3 col-xs-12" style="line-height:35px">
+                    <span id="content"><i class="lyric_show"></i>{{key.lyric|safe}}</span>
+                </div>
+
+             <!--    <div class="Lyric_list_toolbar">
+                  <button class="mod_btn js_clip">
+                      展开
+                </button>
+                   <button class="mod_btn js_lyric_copy" data-clipboard-text="{{key.song_name}}">
+
+                    </button>
+                </div>-->
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
